@@ -16,14 +16,13 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   late final TextEditingController _searchController;
-  List<FamousCity> filteredCities = famousCities; // Başlangıçta tüm şehirler
+  List<FamousCity> filteredCities = famousCities;
 
   @override
   void initState() {
     super.initState();
     _searchController = TextEditingController();
 
-    // Arama kutusundaki değişiklikleri dinleyerek filtreleme
     _searchController.addListener(() {
       final query = _searchController.text.toLowerCase();
 
@@ -43,35 +42,40 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GradientContainer(
-      children: [
-        const Align(
-          alignment: Alignment.center,
-          child: Text(
-            'Pick Location',
-            style: TextStyles.h1,
-          ),
-        ),
-        const SizedBox(height: 20),
-        Row(
-          children: [
-            Expanded(
-              child: RoundTextField(controller: _searchController),
+    return Scaffold(
+      body: GradientContainer(
+        children: [ 
+          const Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Pick Location',
+              style: TextStyles.h1,
             ),
-            const SizedBox(width: 15),
-            const LocationIcon(),
-          ],
-        ),
-        const SizedBox(height: 30),
-        // Filtrelenmiş listeyi gönderiyoruz
-        Expanded(
-          child: FamousCitiesWeather(cities: filteredCities),
-        ),
-      ],
+          ),
+          const SizedBox(height: 20),
+          Row(
+            children: [
+              Expanded(
+                child: RoundTextField(controller: _searchController),
+              ),
+              const SizedBox(width: 15),
+              const LocationIcon(),
+            ],
+          ),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                const SizedBox(height: 30),
+                FamousCitiesWeather(cities: filteredCities),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
-}
 
+}
 
 class LocationIcon extends StatelessWidget {
   const LocationIcon({super.key});
