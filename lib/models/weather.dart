@@ -119,17 +119,18 @@ class Main {
   });
 
   factory Main.fromJson(Map<String, dynamic> json) => Main(
-        temp: json['temp'] as double,
-        feelsLike: json['feels_like'] as double,
-        tempMin: json['temp_min'] as double,
-        tempMax: json['temp_max'] as double,
-        pressure: json['pressure'],
-        humidity: json['humidity'],
-        seaLevel: json['sea_level'],
-        grndLevel: json['grnd_level'],
-        visibility: json['visibility'],
+        temp: (json['temp'] as num).toDouble(),
+        feelsLike: (json['feels_like'] as num).toDouble(),
+        tempMin: (json['temp_min'] as num).toDouble(),
+        tempMax: (json['temp_max'] as num).toDouble(),
+        pressure: json['pressure'] as int?,
+        humidity: json['humidity'] as int?,
+        seaLevel: json['sea_level'] as int?,
+        grndLevel: json['grnd_level'] as int?,
+        visibility: json['visibility'] as int?,
       );
 }
+
 
 @immutable
 class Wind {
@@ -144,11 +145,12 @@ class Wind {
   });
 
   factory Wind.fromJson(Map<String, dynamic> json) => Wind(
-        speed: json['speed'] ?? 0.0,
-        deg: json['deg'] ?? 0,
-        gust: json['gust'],
+        speed: (json['speed'] as num).toDouble(),
+        deg: json['deg'] as int? ?? 0,
+        gust: json['gust'] != null ? (json['gust'] as num).toDouble() : null,
       );
 }
+
 
 @immutable
 class Rain {
@@ -156,10 +158,11 @@ class Rain {
 
   const Rain({this.oneHour});
 
-  factory Rain.fromJson(Map<String, dynamic> json) {
-    return Rain(oneHour: json['oneHour'] ?? 0.0);
-  }
+  factory Rain.fromJson(Map<String, dynamic> json) => Rain(
+        oneHour: json['1h'] != null ? (json['1h'] as num).toDouble() : 0.0,
+      );
 }
+
 
 @immutable
 class Clouds {
