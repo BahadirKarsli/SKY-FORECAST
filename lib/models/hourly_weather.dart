@@ -20,13 +20,13 @@ class HourlyWeather {
 
   factory HourlyWeather.fromJson(Map<String, dynamic> json) {
     return HourlyWeather(
-      cod: json['cod'] ?? '',
-      message: json['message'] ?? 0,
-      cnt: json['cnt'] ?? 0,
+      cod: json['cod'] as String? ?? '',
+      message: (json['message'] as num?)?.toInt() ?? 0,
+      cnt: (json['cnt'] as num?)?.toInt() ?? 0,
       list: (json['list'] as List<dynamic>)
-          .map((entry) => WeatherEntry.fromJson(entry))
+          .map((entry) => WeatherEntry.fromJson(entry as Map<String, dynamic>))
           .toList(),
-      city: json['city'] != null ? City.fromJson(json['city']) : null,
+      city: json['city'] != null ? City.fromJson(json['city'] as Map<String, dynamic>) : null,
     );
   }
 }
@@ -39,7 +39,7 @@ class WeatherEntry {
   final Clouds clouds;
   final Wind wind;
   final int visibility;
-  final dynamic pop;
+  final double pop;
   final Sys? sys;
   final Rain? rain;
   final String dtTxt;
@@ -59,18 +59,18 @@ class WeatherEntry {
 
   factory WeatherEntry.fromJson(Map<String, dynamic> json) {
     return WeatherEntry(
-      dt: json['dt'] ?? 0,
-      main: Main.fromJson(json['main']),
+      dt: (json['dt'] as num?)?.toInt() ?? 0,
+      main: Main.fromJson(json['main'] as Map<String, dynamic>),
       weather: (json['weather'] as List<dynamic>)
-          .map((weatherData) => WeatherData.fromJson(weatherData))
+          .map((weatherData) => WeatherData.fromJson(weatherData as Map<String, dynamic>))
           .toList(),
-      clouds: Clouds.fromJson(json['clouds']),
-      wind: Wind.fromJson(json['wind']),
-      visibility: json['visibility'] ?? 0,
-      pop: json['pop'] ?? 0.0,
-      sys: json['sys'] != null ? Sys.fromJson(json['sys']) : null,
-      rain: json['rain'] != null ? Rain.fromJson(json['rain']) : null,
-      dtTxt: json['dt_txt'],
+      clouds: Clouds.fromJson(json['clouds'] as Map<String, dynamic>),
+      wind: Wind.fromJson(json['wind'] as Map<String, dynamic>),
+      visibility: (json['visibility'] as num?)?.toInt() ?? 0,
+      pop: (json['pop'] as num?)?.toDouble() ?? 0.0,
+      sys: json['sys'] != null ? Sys.fromJson(json['sys'] as Map<String, dynamic>) : null,
+      rain: json['rain'] != null ? Rain.fromJson(json['rain'] as Map<String, dynamic>) : null,
+      dtTxt: json['dt_txt'] as String? ?? '',
     );
   }
 }
@@ -101,15 +101,15 @@ class Main {
 
   factory Main.fromJson(Map<String, dynamic> json) {
     return Main(
-      temp: json['temp'].toDouble(),
-      feelsLike: json['feels_like'].toDouble(),
-      tempMin: json['temp_min'].toDouble(),
-      tempMax: json['temp_max'].toDouble(),
-      pressure: json['pressure'],
-      seaLevel: json['sea_level'],
-      grndLevel: json['grnd_level'],
-      humidity: json['humidity'],
-      tempKf: json['temp_kf'].toDouble(),
+      temp: (json['temp'] as num?)?.toDouble() ?? 0.0,
+      feelsLike: (json['feels_like'] as num?)?.toDouble() ?? 0.0,
+      tempMin: (json['temp_min'] as num?)?.toDouble() ?? 0.0,
+      tempMax: (json['temp_max'] as num?)?.toDouble() ?? 0.0,
+      pressure: (json['pressure'] as num?)?.toInt() ?? 0,
+      seaLevel: (json['sea_level'] as num?)?.toInt() ?? 0,
+      grndLevel: (json['grnd_level'] as num?)?.toInt() ?? 0,
+      humidity: (json['humidity'] as num?)?.toInt() ?? 0,
+      tempKf: (json['temp_kf'] as num?)?.toDouble() ?? 0.0,
     );
   }
 }
@@ -124,7 +124,7 @@ class Clouds {
 
   factory Clouds.fromJson(Map<String, dynamic> json) {
     return Clouds(
-      all: json['all'],
+      all: (json['all'] as num?)?.toInt() ?? 0,
     );
   }
 }
@@ -143,9 +143,9 @@ class Wind {
 
   factory Wind.fromJson(Map<String, dynamic> json) {
     return Wind(
-      speed: json['speed'].toDouble(),
-      deg: json['deg'],
-      gust: json['gust'].toDouble(),
+      speed: (json['speed'] as num?)?.toDouble() ?? 0.0,
+      deg: (json['deg'] as num?)?.toInt() ?? 0,
+      gust: (json['gust'] as num?)?.toDouble() ?? 0.0,
     );
   }
 }
@@ -173,14 +173,14 @@ class City {
 
   factory City.fromJson(Map<String, dynamic> json) {
     return City(
-      id: json['id'],
-      name: json['name'],
-      coord: Coord.fromJson(json['coord']),
-      country: json['country'],
-      population: json['population'],
-      timezone: json['timezone'],
-      sunrise: json['sunrise'],
-      sunset: json['sunset'],
+      id: (json['id'] as num?)?.toInt() ?? 0,
+      name: json['name'] as String? ?? '',
+      coord: Coord.fromJson(json['coord'] as Map<String, dynamic>),
+      country: json['country'] as String? ?? '',
+      population: (json['population'] as num?)?.toInt() ?? 0,
+      timezone: (json['timezone'] as num?)?.toInt() ?? 0,
+      sunrise: (json['sunrise'] as num?)?.toInt() ?? 0,
+      sunset: (json['sunset'] as num?)?.toInt() ?? 0,
     );
   }
 }
@@ -197,8 +197,8 @@ class Coord {
 
   factory Coord.fromJson(Map<String, dynamic> json) {
     return Coord(
-      lat: json['lat'].toDouble(),
-      lon: json['lon'].toDouble(),
+      lat: (json['lat'] as num?)?.toDouble() ?? 0.0,
+      lon: (json['lon'] as num?)?.toDouble() ?? 0.0,
     );
   }
 }
@@ -212,7 +212,9 @@ class Rain {
   });
 
   factory Rain.fromJson(Map<String, dynamic> json) {
-    return Rain(threeHours: json['3h'] ?? 0.0);
+    return Rain(
+      threeHours: (json['3h'] as num?)?.toDouble() ?? 0.0,
+    );
   }
 }
 
@@ -226,7 +228,7 @@ class Sys {
 
   factory Sys.fromJson(Map<String, dynamic> json) {
     return Sys(
-      pod: json['pod'] ?? '',
+      pod: json['pod'] as String? ?? '',
     );
   }
 }
