@@ -17,29 +17,29 @@ class GradientContainer extends StatelessWidget {
       child: Container(
         height: screenSize.height,
         width: screenSize.width,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.bottomLeft,
-            end: Alignment.topRight,
             colors: [
-              AppColors.black,
-              AppColors.secondaryBlack,
-              AppColors.secondaryBlack.withOpacity(.99),
-              AppColors.secondaryBlack.withOpacity(.98),
-              AppColors.secondaryBlack.withOpacity(.97),
-              AppColors.secondaryBlack.withOpacity(.96),
-              AppColors.secondaryBlack.withOpacity(.95),
-              AppColors.secondaryBlack.withOpacity(.94),
-              AppColors.secondaryBlack.withOpacity(.93),
-              AppColors.secondaryBlack.withOpacity(.92),
-              AppColors.secondaryBlack.withOpacity(.91),
-              AppColors.secondaryBlack.withOpacity(.90),
               AppColors.darkBlue,
-              AppColors.accentBlue,
-              AppColors.lightBlue,
+              Color(0xFF2193b0),
+              Colors.orange,
+              Color(0xFF6dd5ed),
+              AppColors.darkBlue,
+              AppColors.secondaryBlack,
+              
             ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 10.0,
+              offset: Offset(0, 4),
+            ),
+          ],
         ),
+
         child: Padding(
           padding: const EdgeInsets.only(
             left: 24.0,
