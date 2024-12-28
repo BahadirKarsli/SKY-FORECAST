@@ -2,6 +2,8 @@
 
 Usable on android.
 
+--------------------------------------------------------------------------------
+
 #Features
 
 Shows the weather,humidity and wind speed of the state you are currently in.
