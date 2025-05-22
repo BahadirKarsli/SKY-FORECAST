@@ -13,17 +13,17 @@ The application includes the following features:
 ## Installation
 To compile and run the application, follow these steps:
 
-1- Install Android Studio from this website: [Android Studio](https://developer.android.com/studio)
-2- Install the Java Development Kit (JDK) from this site: [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html)
-3- Ensure the Android SDK is installed with necessary platforms and build tools.
-4- After setting up, clone the repository, open it in Android Studio, and follow standard procedures for building and running Android applications.
+1. Install Android Studio from this website: [Android Studio](https://developer.android.com/studio)
+2. Install the Java Development Kit (JDK) from this site: [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html)
+3. Ensure the Android SDK is installed with necessary platforms and build tools.
+4. After setting up, clone the repository, open it in Android Studio, and follow standard procedures for building and running Android applications.
 
 ## Usage
 To use the application:
 
-1- Install it on your Android device.
-2- Grant location permissions to allow the app to detect your current location.
-3- The app will then display current weather conditions and forecasts for your location.
+1. Install it on your Android device.
+2. Grant location permissions to allow the app to detect your current location.
+3. The app will then display current weather conditions and forecasts for your location.
 
 ## Versions
 Currently, there is no released version available. The application can be used by compiling it from the source code.
