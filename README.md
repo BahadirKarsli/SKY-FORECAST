@@ -1,35 +1,35 @@
-# SKY-FORECAST
+#SKY FORECAST
 
-**SKY-FORECAST**, gerçek zamanlı hava durumu bilgisi sağlayan bir Android uygulamasıdır. Sıcaklık, nem, rüzgar hızı gibi verileri sunar ve Openmeteo ile OpenWeatherMap API'lerini kullanarak bulunduğunuz konum için doğru günlük ve haftalık hava durumu tahminleri sağlar.
+A real-time weather information providing Android application. It presents data like temperature, humidity, and wind speed, and uses Openmeteo and OpenWeatherMap APIs to offer accurate daily and weekly weather forecasts for the user's current location.
 
-## Özellikler
+## Features
+The application includes the following features:
 
-- Mevcut hava durumu koşulları: sıcaklık, nem, rüzgar hızı.
-- Günlük ve haftalık hava durumu tahminleri.
-- Openmeteo ve OpenWeatherMap API'lerinden veri alır.
-- Bulunduğunuz konumu otomatik olarak algılar ve ilgili hava durumu bilgilerini gösterir.
+- Current weather conditions, including temperature, humidity, and wind speed.
+- Daily and weekly weather forecasts.
+- Data retrieval from Openmeteo and OpenWeatherMap APIs.
+- Automatic detection of the user's current location to display relevant weather information.
 
-## Kurulum
+## Installation
+To compile and run the application, follow these steps:
 
-Uygulamayı derlemek ve çalıştırmak için aşağıdaki adımları izleyin:
+1- Install Android Studio from this website: [Android Studio](https://developer.android.com/studio)
+2- Install the Java Development Kit (JDK) from this site: [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html)
+3- Ensure the Android SDK is installed with necessary platforms and build tools.
+4- After setting up, clone the repository, open it in Android Studio, and follow standard procedures for building and running Android applications.
 
-1. Bilgisayarınıza [Android Studio](https://developer.android.com/studio) kurun.
-2. [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html) kurun.
-3. Gerekli platformlar ve derleme araçlarıyla birlikte Android SDK'yı kurun.
+## Usage
+To use the application:
 
-Depoyu klonlayın, projeyi Android Studio'da açın ve Android uygulamaları için standart derleme ve çalıştırma prosedürlerini takip edin.
+1- Install it on your Android device.
+2- Grant location permissions to allow the app to detect your current location.
+3- The app will then display current weather conditions and forecasts for your location.
 
-## Kullanım
+## Versions
+Currently, there is no released version available. The application can be used by compiling it from the source code.
 
-1. Uygulamayı Android cihazınıza yükleyin.
-2. Konum izinlerini vererek uygulamanın mevcut konumunuzu algılamasına izin verin.
-3. Uygulama, mevcut hava durumu koşullarını ve konumunuz için tahminleri gösterecektir.
+## Used APIs
+The application relies on the following APIs:
 
-## Sürümler
-
-Şu anda yayınlanmış bir sürüm bulunmamaktadır. Uygulama, kaynaktan derlenerek kullanılabilir.
-
-## Kullanılan API'ler
-
-- [Openmeteo](https://open-meteo.com/): Hava durumu verileri ve konum bilgileri için.
-- [OpenWeatherMap](https://openweathermap.org/): Ek hava durumu bilgileri için.
+[Openmeteo](https://open-meteo.com/) for weather data and location information.
+[OpenWeatherMap](https://openweathermap.org/) for additional weather details.
