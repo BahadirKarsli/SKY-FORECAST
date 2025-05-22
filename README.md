@@ -1,4 +1,4 @@
-#SKY FORECAST
+# SKY FORECAST
 
 A real-time weather information providing Android application. It presents data like temperature, humidity, and wind speed, and uses Openmeteo and OpenWeatherMap APIs to offer accurate daily and weekly weather forecasts for the user's current location.
 
